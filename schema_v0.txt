@@ -1,0 +1,309 @@
+TABLE  datasources {	
+id id
+name varchar
+type_ref id
+soft_name varchar
+soft_company varchar
+doc_url varchar
+contact_id varchar
+}
+
+TABLE  events {
+	id id
+  datasource_id varchar
+  name varchar
+  title varchar
+  description varchar
+  type_ref id
+  sibil_id integer
+  image id
+  organizer_id varchar
+  }
+
+TABLE images {
+  id id
+  image_parent id
+  content json //URL ? ou Binary / Base64
+  orderme int
+}
+
+TABLE representations {
+  id id
+  datasource_id id
+  type_ref id
+  name varchar
+  title varchar
+  description text
+  start_date datetime
+  end_date datetime
+  venue_id id
+  organizer_id id
+  event_id id
+}
+
+TABLE venue {
+  id id
+  datasource_id id
+  name varchar
+  jauge integer
+  address_id id
+  area_id id
+}
+
+TABLE organizer {
+  id id
+  datasource_id id
+  type_ref id
+  name varchar
+  siret varchar
+  rna varchar
+  licence_number varchar
+  phone varchar
+  cell_phone varchar
+  email varchar
+  wesbsite varchar
+  contact_id id
+  address_id id
+}
+
+TABLE address {
+ id varchar
+ type_ref id
+ name varchar
+ street1 varchar
+ street2 varchar
+ street3 varchar
+ street4 varchar
+ zipcode varchar
+ country varchar
+ city varchar
+longitude double
+latitude double
+}
+ 
+TABLE contacts {
+ id varchar
+ email varchar
+ firstname varchar
+ lastname varchar
+ phone varchar
+ cell_phone varchar
+ address_id varchar
+ birthdate datetime
+ role enum
+ website varchar
+}
+
+TABLE contact_params {
+  contact_id id
+  params varchar
+  type_ref id
+}
+
+TABLE products {
+  id id
+  product_parent id
+  name varchar
+  type_ref id
+  status_ref id
+  start_sale_periode datetime
+  end_sale_periode datetime
+  event_id id
+  representation_id id
+}
+
+TABLE product_params {
+  product_id id
+  params varchar
+  type_ref id
+}
+
+TABLE category {
+  id id
+  category_parent id
+  type_ref id
+  name varchar
+  product_id id
+}
+
+ 
+
+TABLE taxes {
+  id varchar
+  type_ref id
+  name varchar
+  rate numeric
+}
+
+TABLE prices {
+  id id
+  taxe_id id
+  value numeric
+  product_id id
+  price_category_ref id
+}
+
+TABLE ref {
+  id id
+  ref varchar
+  ref_parents varchar
+}
+
+TABLE tranlations {
+  language varchar //iso 3 
+  ref_id varchar
+  value varchar
+}
+
+TABLE offers {
+  id id
+  offers_parent id
+}
+
+TABLE offers_product {
+    offer_id id
+    product_id id
+}
+
+TABLE offers_params {
+    offer_id id
+    params varchar
+    type_ref id
+}
+
+TABLE areas {
+ id id
+ areas_parent id
+ type_ref id
+ name varchar
+ ycoordinate varchar
+ xcoordinate varchar
+ latitude double
+ longitude double
+ polys json
+}
+
+TABLE stocks {
+  id id
+  type_ref id
+  parent_stocks_id id
+  area_id id
+  product_id id
+  total_stock int
+  available_stock int 
+}
+
+TABLE stocks_params {
+    stock_id id
+    params varchar
+    type_ref id
+    
+}
+
+TABLE operations {
+  id id
+  operations_parent id
+  datebegin datetime
+  dateend datetime
+  type_ref id
+}
+
+TABLE operation_params {
+  operation_id id
+  params varchar
+  type_ref id
+}
+
+TABLE ticket {
+  id id
+  fiscal_number int 
+  amount_ttc float
+  amount_ht float
+  vat_rate float
+  barcode varchar
+  support_ref id
+  ticket_creation_date datetime
+  ticket_modification_date datetime
+  status_ref id
+  beneficiary_contact_id id
+  contact_id id
+  product_id id
+  category_id id
+  subcategory_id id
+  price_id id
+  event_id id
+  representation_id id
+  order_id id
+  orderline_id id
+}
+
+TABLE order {
+  id id
+  channel_ref id
+  delivery_mode_ref id
+  contact_id id
+  status_ref id
+  totalDiscountHT numeric
+  totalAmountWithDiscountHT numeric
+  totalDisctountTTC numeric
+  totalAmountWithDiscountTTC numeric
+  oderlines_total int
+  order_tickets_total int
+  orderline_id id
+}
+
+TABLE orderline {
+  id id
+  order_id id
+  event_id id
+  representation_id id
+  product_id id
+  category_id id
+  subcategory_id id
+  price_id id
+  quantity int
+  orderline_totalDiscountHT double
+  orderline_totalAmountWithDiscountHT double
+  orderline_totalDisctountTTC double
+  orderline_totalAmountWithDiscountTTC double
+  taxe_id id
+  
+}
+
+// Référence
+Ref: events.datasource_id < datasources.id 
+Ref: representations.datasource_id < datasources.id
+Ref: representations.venue_id - venue.id 
+Ref: representations.organizer_id < organizer.id
+Ref: representations.event_id < events.id 
+Ref: organizer.address_id < address.id 
+Ref: venue.address_id < address.id
+Ref: contacts.address_id < address.id
+Ref: datasources.contact_id < contacts.id
+Ref: organizer.contact_id < contacts.id
+Ref: products.event_id < events.id
+Ref: products.representation_id < representations.id
+Ref: category.product_id < products.id
+Ref: category.category_parent < category.id
+
+Ref: ticket.beneficiary_contact_id < contacts.id
+Ref: ticket.product_id < products.id
+Ref: ticket.category_id < category.id
+Ref: ticket.subcategory_id < category.id
+
+Ref: ticket.event_id < events.id
+Ref: ticket.representation_id < representations.id
+Ref: ticket.order_id < order.id
+Ref: ticket.contact_id < contacts.id
+Ref: ticket.orderline_id < orderline.id
+Ref: order.contact_id < contacts.id
+Ref: orderline.order_id < order.id
+Ref: orderline.event_id < events.id
+Ref: orderline.representation_id < representations.id
+Ref: orderline.product_id < products.id
+Ref: orderline.category_id < category.id
+Ref: orderline.subcategory_id < category.id
+
+
+
+Ref: "contacts"."role" < "contacts"."birthdate"
