@@ -7,8 +7,8 @@ Bienvenue sur l'espace TOS : Tickets Ouverts & Standards.
 Cet espace est ouvert à tous les acteurs et curieux de l'industrie de la billetterie, de la culture et du tourisme. 
 
 Il a 2 objectifs : 
-* Partager nos premières ébauches d'une norme API pour l'industrie française de la billetterie
-* Échanger sur les principaux défis et la meilleure manière de les relever ensemble 
+*Partager nos premières ébauches d'une norme API pour l'industrie française de la billetterie et rapidement européenne
+*Échanger sur les principaux défis et la meilleure manière de les relever ensemble
 
 Comment vous pouvez interagir ? 
 
