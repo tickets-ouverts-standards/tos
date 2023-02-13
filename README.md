@@ -1,6 +1,5 @@
 ## TOS
 
-![schema](schema_v0.png)  
 
 
 ### tos
@@ -14,7 +13,7 @@ Il a 2 objectifs :
 Comment vous pouvez interagir ? 
 
 => Si vous êtes tech : n'hésitez pas à commenter les propositions faites [dans la partie <> code.](https://github.com/tickets-ouverts-standards/tos) 
-=> Si vous êtes moins tech ou que vous souhaitez échanger : [rendez-vous dans la partie "Discussions" pour donner votre avis]([url](https://github.com/tickets-ouverts-standards/tos/discussions))
+=> Si vous êtes moins tech ou que vous souhaitez échanger : [rendez-vous dans la partie "Discussions" pour donner votre avis](https://github.com/tickets-ouverts-standards/tos/discussions)
 
 ! Important : L'ensemble des éléments présents sur cet espace sont régis par la convention XXX qui garantit que tous les éléments partagés appartiennent à tous les participants à cet espace ! 
 
