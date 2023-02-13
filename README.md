@@ -2,7 +2,7 @@
 
 
 
-### tos
+### Un espace d'échange pour structurer notre démarche commune vers un standard d'API Billetterie
 Bienvenue sur l'espace TOS : Tickets Ouverts & Standards. 
 Cet espace est ouvert à tous les acteurs et curieux de l'industrie de la billetterie, de la culture et du tourisme. 
 
