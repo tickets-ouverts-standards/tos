@@ -17,4 +17,4 @@ Comment vous pouvez interagir ?
 
 ! Important : L'ensemble des éléments présents sur cet espace sont régis par la convention XXX qui garantit que tous les éléments partagés appartiennent à tous les participants à cet espace ! 
 
-![image] : Pour commencer nous proposons d'utiliser le Français comme langue d'échange
+FR : Pour commencer nous proposons d'utiliser le Français comme langue d'échange
